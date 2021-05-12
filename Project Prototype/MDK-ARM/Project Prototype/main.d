@@ -35,5 +35,6 @@ project prototype\main.o: ../Core/Inc/ssd1306.h
 project prototype\main.o: ../Core/Inc/fonts.h
 project prototype\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 project prototype\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+project prototype\main.o: ../Core/Inc/max30102.h
 project prototype\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 project prototype\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
