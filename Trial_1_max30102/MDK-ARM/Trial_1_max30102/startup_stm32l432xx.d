@@ -1,0 +1,1 @@
+trial_1_max30102\startup_stm32l432xx.o: startup_stm32l432xx.s

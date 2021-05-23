@@ -1,0 +1,995 @@
+Component: ARM Compiler 5.06 update 7 (build 960) Tool: armlink [4d3601]
+
+==============================================================================
+
+Section Cross References
+
+    startup_stm32l432xx.o(RESET) refers to startup_stm32l432xx.o(STACK) for __initial_sp
+    startup_stm32l432xx.o(RESET) refers to startup_stm32l432xx.o(.text) for Reset_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.NMI_Handler) for NMI_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.HardFault_Handler) for HardFault_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.MemManage_Handler) for MemManage_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.BusFault_Handler) for BusFault_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.UsageFault_Handler) for UsageFault_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.SVC_Handler) for SVC_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.DebugMon_Handler) for DebugMon_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.PendSV_Handler) for PendSV_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.SysTick_Handler) for SysTick_Handler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.I2C1_EV_IRQHandler) for I2C1_EV_IRQHandler
+    startup_stm32l432xx.o(RESET) refers to stm32l4xx_it.o(i.USART2_IRQHandler) for USART2_IRQHandler
+    startup_stm32l432xx.o(.text) refers to system_stm32l4xx.o(i.SystemInit) for SystemInit
+    startup_stm32l432xx.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    max30102.o(i.initialize) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_IsDeviceReady) for HAL_I2C_IsDeviceReady
+    max30102.o(i.initialize) refers to stm32l4xx_hal.o(i.HAL_Delay) for HAL_Delay
+    max30102.o(i.initialize) refers to max30102.o(i.reset) for reset
+    max30102.o(i.initialize) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) for HAL_I2C_Mem_Read
+    max30102.o(i.initialize) refers to max30102.o(i.setup) for setup
+    max30102.o(i.initialize) refers to max30102.o(.data) for .data
+    max30102.o(i.read_fifo) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) for HAL_I2C_Mem_Read
+    max30102.o(i.read_fifo) refers to max30102.o(.data) for .data
+    max30102.o(i.read_sequential) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_ReadPin) for HAL_GPIO_ReadPin
+    max30102.o(i.read_sequential) refers to max30102.o(i.read_fifo) for read_fifo
+    max30102.o(i.read_sequential) refers to max30102.o(.data) for .data
+    max30102.o(i.read_sequential) refers to max30102.o(.bss) for .bss
+    max30102.o(i.reset) refers to max30102.o(i.ssd1306_I2C_Write) for ssd1306_I2C_Write
+    max30102.o(i.reset) refers to max30102.o(.data) for .data
+    max30102.o(i.set_config) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) for HAL_I2C_Mem_Write
+    max30102.o(i.set_config) refers to max30102.o(.data) for .data
+    max30102.o(i.setup) refers to max30102.o(i.ssd1306_I2C_Write) for ssd1306_I2C_Write
+    max30102.o(i.setup) refers to max30102.o(.data) for .data
+    max30102.o(i.shutdown) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) for HAL_I2C_Mem_Write
+    max30102.o(i.shutdown) refers to max30102.o(.data) for .data
+    max30102.o(i.ssd1306_I2C_Write) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) for HAL_I2C_Master_Transmit
+    main.o(i.MX_I2C1_SMBUS_Init) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Init) for HAL_SMBUS_Init
+    main.o(i.MX_I2C1_SMBUS_Init) refers to main.o(.bss) for .bss
+    main.o(i.MX_USART2_UART_Init) refers to stm32l4xx_hal_uart.o(i.HAL_UART_Init) for HAL_UART_Init
+    main.o(i.MX_USART2_UART_Init) refers to main.o(.bss) for .bss
+    main.o(i.SystemClock_Config) refers to memseta.o(.text) for __aeabi_memclr4
+    main.o(i.SystemClock_Config) refers to stm32l4xx_hal_pwr.o(i.HAL_PWR_EnableBkUpAccess) for HAL_PWR_EnableBkUpAccess
+    main.o(i.SystemClock_Config) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) for HAL_RCC_OscConfig
+    main.o(i.SystemClock_Config) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) for HAL_RCC_ClockConfig
+    main.o(i.SystemClock_Config) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_PeriphCLKConfig) for HAL_RCCEx_PeriphCLKConfig
+    main.o(i.SystemClock_Config) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_ControlVoltageScaling) for HAL_PWREx_ControlVoltageScaling
+    main.o(i.SystemClock_Config) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableMSIPLLMode) for HAL_RCCEx_EnableMSIPLLMode
+    main.o(i.main) refers to stm32l4xx_hal.o(i.HAL_Init) for HAL_Init
+    main.o(i.main) refers to main.o(i.SystemClock_Config) for SystemClock_Config
+    main.o(i.main) refers to main.o(i.MX_I2C1_SMBUS_Init) for MX_I2C1_SMBUS_Init
+    main.o(i.main) refers to main.o(i.MX_USART2_UART_Init) for MX_USART2_UART_Init
+    main.o(i.main) refers to max30102.o(i.initialize) for initialize
+    stm32l4xx_it.o(i.I2C1_EV_IRQHandler) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EV_IRQHandler) for HAL_SMBUS_EV_IRQHandler
+    stm32l4xx_it.o(i.I2C1_EV_IRQHandler) refers to main.o(.bss) for hsmbus1
+    stm32l4xx_it.o(i.SysTick_Handler) refers to stm32l4xx_hal.o(i.HAL_IncTick) for HAL_IncTick
+    stm32l4xx_it.o(i.USART2_IRQHandler) refers to stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) for HAL_UART_IRQHandler
+    stm32l4xx_it.o(i.USART2_IRQHandler) refers to main.o(.bss) for huart2
+    stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspDeInit) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_DeInit) for HAL_GPIO_DeInit
+    stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspDeInit) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_DisableIRQ) for HAL_NVIC_DisableIRQ
+    stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspInit) refers to memseta.o(.text) for __aeabi_memclr4
+    stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspInit) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspInit) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
+    stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspInit) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ) for HAL_NVIC_EnableIRQ
+    stm32l4xx_hal_msp.o(i.HAL_UART_MspDeInit) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_DeInit) for HAL_GPIO_DeInit
+    stm32l4xx_hal_msp.o(i.HAL_UART_MspDeInit) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_DisableIRQ) for HAL_NVIC_DisableIRQ
+    stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) refers to memseta.o(.text) for __aeabi_memclr4
+    stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
+    stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ) for HAL_NVIC_EnableIRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_DeInit) refers to stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspDeInit) for HAL_SMBUS_MspDeInit
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_DisableAlert_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Disable_IRQ) for SMBUS_Disable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_DisableListen_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Disable_IRQ) for SMBUS_Disable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ER_IRQHandler) refers to stm32l4xx_hal_smbus.o(i.SMBUS_ITErrorHandler) for SMBUS_ITErrorHandler
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EV_IRQHandler) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) for SMBUS_Slave_ISR
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EV_IRQHandler) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) for SMBUS_Master_ISR
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EnableAlert_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EnableListen_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Init) refers to stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspInit) for HAL_SMBUS_MspInit
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_IsDeviceReady) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_IsDeviceReady) refers to stm32l4xx_hal_smbus.o(i.SMBUS_WaitOnFlagUntilTimeout) for SMBUS_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Abort_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Abort_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_ConvertOtherXferOptions) for SMBUS_ConvertOtherXferOptions
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_ConvertOtherXferOptions) for SMBUS_ConvertOtherXferOptions
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Disable_IRQ) for SMBUS_Disable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_ConvertOtherXferOptions) for SMBUS_ConvertOtherXferOptions
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Receive_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Disable_IRQ) for SMBUS_Disable_IRQ
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_ConvertOtherXferOptions) for SMBUS_ConvertOtherXferOptions
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Transmit_IT) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ) for SMBUS_Enable_IRQ
+    stm32l4xx_hal_smbus.o(i.SMBUS_ITErrorHandler) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ErrorCallback) for HAL_SMBUS_ErrorCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ErrorCallback) for HAL_SMBUS_ErrorCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) refers to stm32l4xx_hal_smbus.o(i.SMBUS_ITErrorHandler) for SMBUS_ITErrorHandler
+    stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Disable_IRQ) for SMBUS_Disable_IRQ
+    stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_MasterTxCpltCallback) for HAL_SMBUS_MasterTxCpltCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Master_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_MasterRxCpltCallback) for HAL_SMBUS_MasterRxCpltCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.SMBUS_Disable_IRQ) for SMBUS_Disable_IRQ
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ErrorCallback) for HAL_SMBUS_ErrorCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_AddrCallback) for HAL_SMBUS_AddrCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.SMBUS_TransferConfig) for SMBUS_TransferConfig
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_SlaveRxCpltCallback) for HAL_SMBUS_SlaveRxCpltCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_SlaveTxCpltCallback) for HAL_SMBUS_SlaveTxCpltCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_Slave_ISR) refers to stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ListenCpltCallback) for HAL_SMBUS_ListenCpltCallback
+    stm32l4xx_hal_smbus.o(i.SMBUS_WaitOnFlagUntilTimeout) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal.o(i.HAL_DeInit) refers to stm32l4xx_hal.o(i.HAL_MspDeInit) for HAL_MspDeInit
+    stm32l4xx_hal.o(i.HAL_Delay) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal.o(i.HAL_Delay) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal.o(i.HAL_GetTick) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal.o(i.HAL_GetTickFreq) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal.o(i.HAL_GetTickPrio) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal.o(i.HAL_IncTick) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal.o(i.HAL_Init) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping) for HAL_NVIC_SetPriorityGrouping
+    stm32l4xx_hal.o(i.HAL_Init) refers to stm32l4xx_hal.o(i.HAL_InitTick) for HAL_InitTick
+    stm32l4xx_hal.o(i.HAL_Init) refers to stm32l4xx_hal_msp.o(i.HAL_MspInit) for HAL_MspInit
+    stm32l4xx_hal.o(i.HAL_InitTick) refers to stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_Config) for HAL_SYSTICK_Config
+    stm32l4xx_hal.o(i.HAL_InitTick) refers to stm32l4xx_hal_cortex.o(i.HAL_NVIC_SetPriority) for HAL_NVIC_SetPriority
+    stm32l4xx_hal.o(i.HAL_InitTick) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal.o(i.HAL_InitTick) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal.o(i.HAL_SetTickFreq) refers to stm32l4xx_hal.o(i.HAL_InitTick) for HAL_InitTick
+    stm32l4xx_hal.o(i.HAL_SetTickFreq) refers to stm32l4xx_hal.o(.data) for .data
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_DeInit) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MspDeInit) for HAL_I2C_MspDeInit
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_DisableListen_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_ER_IRQHandler) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_EnableListen_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_EnableListen_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) for I2C_Slave_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Init) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MspInit) for HAL_I2C_MspInit
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_IsDeviceReady) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_IsDeviceReady) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Abort_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Abort_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Abort_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnRXNEFlagUntilTimeout) for I2C_WaitOnRXNEFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) for I2C_WaitOnSTOPFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt) for I2C_DMAMasterReceiveCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ConvertOtherXferOptions) for I2C_ConvertOtherXferOptions
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt) for I2C_DMAMasterReceiveCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ConvertOtherXferOptions) for I2C_ConvertOtherXferOptions
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ConvertOtherXferOptions) for I2C_ConvertOtherXferOptions
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt) for I2C_DMAMasterTransmitCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ConvertOtherXferOptions) for I2C_ConvertOtherXferOptions
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) for I2C_WaitOnTXISFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) for I2C_WaitOnSTOPFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt) for I2C_DMAMasterTransmitCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) refers to stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryRead) for I2C_RequestMemoryRead
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) for I2C_WaitOnSTOPFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryRead) for I2C_RequestMemoryRead
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt) for I2C_DMAMasterReceiveCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_IT) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryRead) for I2C_RequestMemoryRead
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) refers to stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite) for I2C_RequestMemoryWrite
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) for I2C_WaitOnTXISFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) for I2C_WaitOnSTOPFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite) for I2C_RequestMemoryWrite
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt) for I2C_DMAMasterTransmitCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_IT) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite) for I2C_RequestMemoryWrite
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) for I2C_Master_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnRXNEFlagUntilTimeout) for I2C_WaitOnRXNEFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) for I2C_WaitOnSTOPFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) for I2C_Slave_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMASlaveReceiveCplt) for I2C_DMASlaveReceiveCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) for I2C_Slave_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAAbort) for I2C_DMAAbort
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) for I2C_Slave_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMASlaveReceiveCplt) for I2C_DMASlaveReceiveCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_IT) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAAbort) for I2C_DMAAbort
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) for I2C_Slave_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAAbort) for I2C_DMAAbort
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) for I2C_Slave_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMASlaveTransmitCplt) for I2C_DMASlaveTransmitCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_IT) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAAbort) for I2C_DMAAbort
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) for I2C_Slave_ISR_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) for I2C_WaitOnTXISFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) for I2C_WaitOnSTOPFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) for I2C_Slave_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMASlaveTransmitCplt) for I2C_DMASlaveTransmitCplt
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAError) for I2C_DMAError
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) for I2C_Slave_ISR_IT
+    stm32l4xx_hal_i2c.o(i.I2C_DMAAbort) refers to stm32l4xx_hal_i2c.o(i.I2C_TreatErrorCallback) for I2C_TreatErrorCallback
+    stm32l4xx_hal_i2c.o(i.I2C_DMAError) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_DMASlaveReceiveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) for I2C_ITSlaveSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_DMASlaveTransmitCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) for I2C_ITSlaveSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) refers to stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) for I2C_Master_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) for I2C_Slave_ISR_DMA
+    stm32l4xx_hal_i2c.o(i.I2C_ITAddrCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_AddrCallback) for HAL_I2C_AddrCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITAddrCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITError) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITError) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_GetState) for HAL_DMA_GetState
+    stm32l4xx_hal_i2c.o(i.I2C_ITError) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_i2c.o(i.I2C_ITError) refers to stm32l4xx_hal_i2c.o(i.I2C_TreatErrorCallback) for I2C_TreatErrorCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITError) refers to stm32l4xx_hal_i2c.o(i.I2C_DMAAbort) for I2C_DMAAbort
+    stm32l4xx_hal_i2c.o(i.I2C_ITError) refers to stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) for I2C_Slave_ISR_IT
+    stm32l4xx_hal_i2c.o(i.I2C_ITListenCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITListenCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_ListenCpltCallback) for HAL_I2C_ListenCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MasterRxCpltCallback) for HAL_I2C_MasterRxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MasterTxCpltCallback) for HAL_I2C_MasterTxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MemTxCpltCallback) for HAL_I2C_MemTxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MemRxCpltCallback) for HAL_I2C_MemRxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterSeqCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterSeqCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MasterRxCpltCallback) for HAL_I2C_MasterRxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITMasterSeqCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_MasterTxCpltCallback) for HAL_I2C_MasterTxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITListenCplt) for I2C_ITListenCplt
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) for I2C_ITSlaveSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_ListenCpltCallback) for HAL_I2C_ListenCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_SlaveTxCpltCallback) for HAL_I2C_SlaveTxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_SlaveRxCpltCallback) for HAL_I2C_SlaveRxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) refers to stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ) for I2C_Disable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_SlaveRxCpltCallback) for HAL_I2C_SlaveRxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_SlaveTxCpltCallback) for HAL_I2C_SlaveTxCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_IsAcknowledgeFailed) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.I2C_IsAcknowledgeFailed) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ) for I2C_Enable_IRQ
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITMasterSeqCplt) for I2C_ITMasterSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) for I2C_ITMasterCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt) for I2C_ITMasterCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITMasterSeqCplt) for I2C_ITMasterSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryRead) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryRead) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) for I2C_WaitOnTXISFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryRead) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite) refers to stm32l4xx_hal_i2c.o(i.I2C_TransferConfig) for I2C_TransferConfig
+    stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) for I2C_WaitOnTXISFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite) refers to stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) for I2C_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) for I2C_ITSlaveCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITListenCplt) for I2C_ITListenCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) for I2C_ITSlaveSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA) refers to stm32l4xx_hal_i2c.o(i.I2C_ITAddrCplt) for I2C_ITAddrCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt) for I2C_ITSlaveCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITError) for I2C_ITError
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITListenCplt) for I2C_ITListenCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_Flush_TXDR) for I2C_Flush_TXDR
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITAddrCplt) for I2C_ITAddrCplt
+    stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT) refers to stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt) for I2C_ITSlaveSeqCplt
+    stm32l4xx_hal_i2c.o(i.I2C_TreatErrorCallback) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_ErrorCallback) for HAL_I2C_ErrorCallback
+    stm32l4xx_hal_i2c.o(i.I2C_TreatErrorCallback) refers to stm32l4xx_hal_i2c.o(i.HAL_I2C_AbortCpltCallback) for HAL_I2C_AbortCpltCallback
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnFlagUntilTimeout) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnRXNEFlagUntilTimeout) refers to stm32l4xx_hal_i2c.o(i.I2C_IsAcknowledgeFailed) for I2C_IsAcknowledgeFailed
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnRXNEFlagUntilTimeout) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) refers to stm32l4xx_hal_i2c.o(i.I2C_IsAcknowledgeFailed) for I2C_IsAcknowledgeFailed
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnSTOPFlagUntilTimeout) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) refers to stm32l4xx_hal_i2c.o(i.I2C_IsAcknowledgeFailed) for I2C_IsAcknowledgeFailed
+    stm32l4xx_hal_i2c.o(i.I2C_WaitOnTXISFlagUntilTimeout) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq) for HAL_RCC_GetSysClockFreq
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) refers to stm32l4xx_hal.o(i.HAL_InitTick) for HAL_InitTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) refers to system_stm32l4xx.o(.constdata) for AHBPrescTable
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_ClockConfig) refers to stm32l4xx_hal.o(.data) for uwTickPrio
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_DeInit) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_DeInit) refers to stm32l4xx_hal.o(i.HAL_InitTick) for HAL_InitTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_DeInit) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_DeInit) refers to stm32l4xx_hal.o(.data) for uwTickPrio
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq) refers to system_stm32l4xx.o(.constdata) for APBPrescTable
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq) refers to system_stm32l4xx.o(.constdata) for APBPrescTable
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq) refers to system_stm32l4xx.o(.constdata) for MSIRangeTable
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_MCOConfig) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_NMI_IRQHandler) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_CSSCallback) for HAL_RCC_CSSCallback
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to stm32l4xx_hal_rcc.o(i.RCC_SetFlashLatencyFromMSIRange) for RCC_SetFlashLatencyFromMSIRange
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq) for HAL_RCC_GetSysClockFreq
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to stm32l4xx_hal.o(i.HAL_InitTick) for HAL_InitTick
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to system_stm32l4xx.o(.constdata) for AHBPrescTable
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig) refers to stm32l4xx_hal.o(.data) for uwTickPrio
+    stm32l4xx_hal_rcc.o(i.RCC_SetFlashLatencyFromMSIRange) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_GetVoltageRange) for HAL_PWREx_GetVoltageRange
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRSWaitSynchronization) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_IRQHandler) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_SyncOkCallback) for HAL_RCCEx_CRS_SyncOkCallback
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_IRQHandler) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_SyncWarnCallback) for HAL_RCCEx_CRS_SyncWarnCallback
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_IRQHandler) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_ExpectedSyncCallback) for HAL_RCCEx_CRS_ExpectedSyncCallback
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_IRQHandler) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_ErrorCallback) for HAL_RCCEx_CRS_ErrorCallback
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisableLSCO) refers to stm32l4xx_hal_pwr.o(i.HAL_PWR_EnableBkUpAccess) for HAL_PWR_EnableBkUpAccess
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisableLSCO) refers to stm32l4xx_hal_pwr.o(i.HAL_PWR_DisableBkUpAccess) for HAL_PWR_DisableBkUpAccess
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisablePLLSAI1) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSCO) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSCO) refers to stm32l4xx_hal_pwr.o(i.HAL_PWR_EnableBkUpAccess) for HAL_PWR_EnableBkUpAccess
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSCO) refers to stm32l4xx_hal_pwr.o(i.HAL_PWR_DisableBkUpAccess) for HAL_PWR_DisableBkUpAccess
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnablePLLSAI1) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq) refers to stm32l4xx_hal_rcc_ex.o(i.RCCEx_GetSAIxPeriphCLKFreq) for RCCEx_GetSAIxPeriphCLKFreq
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq) for HAL_RCC_GetPCLK2Freq
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq) for HAL_RCC_GetSysClockFreq
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq) for HAL_RCC_GetPCLK1Freq
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq) refers to system_stm32l4xx.o(.constdata) for MSIRangeTable
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_LSECSS_IRQHandler) refers to stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_LSECSS_Callback) for HAL_RCCEx_LSECSS_Callback
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_PeriphCLKConfig) refers to stm32l4xx_hal_rcc_ex.o(i.RCCEx_PLLSAI1_Config) for RCCEx_PLLSAI1_Config
+    stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_PeriphCLKConfig) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_rcc_ex.o(i.RCCEx_PLLSAI1_Config) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) refers to stm32l4xx_hal_flash.o(.data) for .data
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_GetError) refers to stm32l4xx_hal_flash.o(.data) for .data
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_IRQHandler) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_FlushCaches) for FLASH_FlushCaches
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_IRQHandler) refers to stm32l4xx_hal_flash.o(i.HAL_FLASH_OperationErrorCallback) for HAL_FLASH_OperationErrorCallback
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_IRQHandler) refers to stm32l4xx_hal_flash.o(i.HAL_FLASH_EndOfOperationCallback) for HAL_FLASH_EndOfOperationCallback
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_IRQHandler) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_PageErase) for FLASH_PageErase
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_IRQHandler) refers to stm32l4xx_hal_flash.o(.data) for .data
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_OB_Launch) refers to stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program) refers to stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program) refers to stm32l4xx_hal_flash.o(i.FLASH_Program_DoubleWord) for FLASH_Program_DoubleWord
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program) refers to stm32l4xx_hal_flash.o(i.FLASH_Program_Fast) for FLASH_Program_Fast
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_FlushCaches) for FLASH_FlushCaches
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program) refers to stm32l4xx_hal_flash.o(.data) for .data
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program_IT) refers to stm32l4xx_hal_flash.o(i.FLASH_Program_DoubleWord) for FLASH_Program_DoubleWord
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program_IT) refers to stm32l4xx_hal_flash.o(i.FLASH_Program_Fast) for FLASH_Program_Fast
+    stm32l4xx_hal_flash.o(i.HAL_FLASH_Program_IT) refers to stm32l4xx_hal_flash.o(.data) for .data
+    stm32l4xx_hal_flash_ex.o(i.FLASH_FlushCaches) refers to stm32l4xx_hal_flash.o(.data) for pFlash
+    stm32l4xx_hal_flash_ex.o(i.FLASH_OB_PCROPConfig) refers to stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    stm32l4xx_hal_flash_ex.o(i.FLASH_OB_UserConfig) refers to stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase) refers to stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_MassErase) for FLASH_MassErase
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_PageErase) for FLASH_PageErase
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_FlushCaches) for FLASH_FlushCaches
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase) refers to stm32l4xx_hal_flash.o(.data) for pFlash
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase_IT) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_PageErase) for FLASH_PageErase
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase_IT) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_MassErase) for FLASH_MassErase
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase_IT) refers to stm32l4xx_hal_flash.o(.data) for pFlash
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_OBProgram) refers to stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_OBProgram) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_OB_UserConfig) for FLASH_OB_UserConfig
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_OBProgram) refers to stm32l4xx_hal_flash_ex.o(i.FLASH_OB_PCROPConfig) for FLASH_OB_PCROPConfig
+    stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_OBProgram) refers to stm32l4xx_hal_flash.o(.data) for pFlash
+    stm32l4xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_EXTI_Callback) for HAL_GPIO_EXTI_Callback
+    stm32l4xx_hal_dma.o(i.HAL_DMA_PollForTransfer) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_dma.o(i.HAL_DMA_Start) refers to stm32l4xx_hal_dma.o(i.DMA_SetConfig) for DMA_SetConfig
+    stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) refers to stm32l4xx_hal_dma.o(i.DMA_SetConfig) for DMA_SetConfig
+    stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSLEEPMode) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableLowPowerRunMode) for HAL_PWREx_EnableLowPowerRunMode
+    stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSLEEPMode) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableLowPowerRunMode) for HAL_PWREx_DisableLowPowerRunMode
+    stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSTOPMode) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnterSTOP0Mode) for HAL_PWREx_EnterSTOP0Mode
+    stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSTOPMode) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnterSTOP1Mode) for HAL_PWREx_EnterSTOP1Mode
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_ControlVoltageScaling) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableLowPowerRunMode) refers to system_stm32l4xx.o(.data) for SystemCoreClock
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableSRAM2ContentRetention) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_SetSRAM2ContentRetention) for HAL_PWREx_SetSRAM2ContentRetention
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableSRAM2ContentRetention) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_SetSRAM2ContentRetention) for HAL_PWREx_SetSRAM2ContentRetention
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVD_PVM_IRQHandler) refers to stm32l4xx_hal_pwr.o(i.HAL_PWR_PVDCallback) for HAL_PWR_PVDCallback
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVD_PVM_IRQHandler) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVM1Callback) for HAL_PWREx_PVM1Callback
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVD_PVM_IRQHandler) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVM3Callback) for HAL_PWREx_PVM3Callback
+    stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVD_PVM_IRQHandler) refers to stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVM4Callback) for HAL_PWREx_PVM4Callback
+    stm32l4xx_hal_cortex.o(i.HAL_NVIC_SetPriority) refers to stm32l4xx_hal_cortex.o(i.__NVIC_SetPriority) for __NVIC_SetPriority
+    stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_Config) refers to stm32l4xx_hal_cortex.o(i.__NVIC_SetPriority) for __NVIC_SetPriority
+    stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler) refers to stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_Callback) for HAL_SYSTICK_Callback
+    stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) for HAL_UART_MspInit
+    stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to stm32l4xx_hal_uart.o(i.UART_SetConfig) for UART_SetConfig
+    stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to stm32l4xx_hal_uart.o(i.UART_AdvFeatureConfig) for UART_AdvFeatureConfig
+    stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_Init) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart.o(i.HAL_LIN_Init) refers to stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) for HAL_UART_MspInit
+    stm32l4xx_hal_uart.o(i.HAL_LIN_Init) refers to stm32l4xx_hal_uart.o(i.UART_SetConfig) for UART_SetConfig
+    stm32l4xx_hal_uart.o(i.HAL_LIN_Init) refers to stm32l4xx_hal_uart.o(i.UART_AdvFeatureConfig) for UART_AdvFeatureConfig
+    stm32l4xx_hal_uart.o(i.HAL_LIN_Init) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_DisableMuteMode) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_EnableMuteMode) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_Init) refers to stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) for HAL_UART_MspInit
+    stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_Init) refers to stm32l4xx_hal_uart.o(i.UART_SetConfig) for UART_SetConfig
+    stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_Init) refers to stm32l4xx_hal_uart.o(i.UART_AdvFeatureConfig) for UART_AdvFeatureConfig
+    stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_Init) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart.o(i.HAL_UART_Abort) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort) for HAL_DMA_Abort
+    stm32l4xx_hal_uart.o(i.HAL_UART_Abort) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_GetError) for HAL_DMA_GetError
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort) for HAL_DMA_Abort
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_GetError) for HAL_DMA_GetError
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive_IT) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive_IT) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceiveCpltCallback) for HAL_UART_AbortReceiveCpltCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive_IT) refers to stm32l4xx_hal_uart.o(i.UART_DMARxOnlyAbortCallback) for UART_DMARxOnlyAbortCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort) for HAL_DMA_Abort
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_GetError) for HAL_DMA_GetError
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit_IT) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit_IT) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmitCpltCallback) for HAL_UART_AbortTransmitCpltCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit_IT) refers to stm32l4xx_hal_uart.o(i.UART_DMATxOnlyAbortCallback) for UART_DMATxOnlyAbortCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_Abort_IT) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_uart.o(i.HAL_UART_Abort_IT) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortCpltCallback) for HAL_UART_AbortCpltCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_Abort_IT) refers to stm32l4xx_hal_uart.o(i.UART_DMATxAbortCallback) for UART_DMATxAbortCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_Abort_IT) refers to stm32l4xx_hal_uart.o(i.UART_DMARxAbortCallback) for UART_DMARxAbortCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_DMAStop) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort) for HAL_DMA_Abort
+    stm32l4xx_hal_uart.o(i.HAL_UART_DMAStop) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_GetError) for HAL_DMA_GetError
+    stm32l4xx_hal_uart.o(i.HAL_UART_DMAStop) refers to stm32l4xx_hal_uart.o(i.UART_EndTxTransfer) for UART_EndTxTransfer
+    stm32l4xx_hal_uart.o(i.HAL_UART_DMAStop) refers to stm32l4xx_hal_uart.o(i.UART_EndRxTransfer) for UART_EndRxTransfer
+    stm32l4xx_hal_uart.o(i.HAL_UART_DeInit) refers to stm32l4xx_hal_msp.o(i.HAL_UART_MspDeInit) for HAL_UART_MspDeInit
+    stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) refers to stm32l4xx_hal_uart.o(i.UART_EndRxTransfer) for UART_EndRxTransfer
+    stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Abort_IT) for HAL_DMA_Abort_IT
+    stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) refers to stm32l4xx_hal_uart.o(i.HAL_UART_ErrorCallback) for HAL_UART_ErrorCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) refers to stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_WakeupCallback) for HAL_UARTEx_WakeupCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) refers to stm32l4xx_hal_uart.o(i.HAL_UART_TxCpltCallback) for HAL_UART_TxCpltCallback
+    stm32l4xx_hal_uart.o(i.HAL_UART_IRQHandler) refers to stm32l4xx_hal_uart.o(i.UART_DMAAbortOnError) for UART_DMAAbortOnError
+    stm32l4xx_hal_uart.o(i.HAL_UART_Init) refers to stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) for HAL_UART_MspInit
+    stm32l4xx_hal_uart.o(i.HAL_UART_Init) refers to stm32l4xx_hal_uart.o(i.UART_SetConfig) for UART_SetConfig
+    stm32l4xx_hal_uart.o(i.HAL_UART_Init) refers to stm32l4xx_hal_uart.o(i.UART_AdvFeatureConfig) for UART_AdvFeatureConfig
+    stm32l4xx_hal_uart.o(i.HAL_UART_Init) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive) refers to stm32l4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout) for UART_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive_DMA) refers to stm32l4xx_hal_uart.o(i.UART_DMAReceiveCplt) for UART_DMAReceiveCplt
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive_DMA) refers to stm32l4xx_hal_uart.o(i.UART_DMARxHalfCplt) for UART_DMARxHalfCplt
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive_DMA) refers to stm32l4xx_hal_uart.o(i.UART_DMAError) for UART_DMAError
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive_IT) refers to stm32l4xx_hal_uart.o(i.UART_RxISR_8BIT) for UART_RxISR_8BIT
+    stm32l4xx_hal_uart.o(i.HAL_UART_Receive_IT) refers to stm32l4xx_hal_uart.o(i.UART_RxISR_16BIT) for UART_RxISR_16BIT
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit) refers to stm32l4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout) for UART_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_DMA) refers to stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT) for HAL_DMA_Start_IT
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_DMA) refers to stm32l4xx_hal_uart.o(i.UART_DMATransmitCplt) for UART_DMATransmitCplt
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_DMA) refers to stm32l4xx_hal_uart.o(i.UART_DMATxHalfCplt) for UART_DMATxHalfCplt
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_DMA) refers to stm32l4xx_hal_uart.o(i.UART_DMAError) for UART_DMAError
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_IT) refers to stm32l4xx_hal_uart.o(i.UART_TxISR_8BIT) for UART_TxISR_8BIT
+    stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_IT) refers to stm32l4xx_hal_uart.o(i.UART_TxISR_16BIT) for UART_TxISR_16BIT
+    stm32l4xx_hal_uart.o(i.UART_CheckIdleState) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_uart.o(i.UART_CheckIdleState) refers to stm32l4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout) for UART_WaitOnFlagUntilTimeout
+    stm32l4xx_hal_uart.o(i.UART_DMAAbortOnError) refers to stm32l4xx_hal_uart.o(i.HAL_UART_ErrorCallback) for HAL_UART_ErrorCallback
+    stm32l4xx_hal_uart.o(i.UART_DMAError) refers to stm32l4xx_hal_uart.o(i.UART_EndTxTransfer) for UART_EndTxTransfer
+    stm32l4xx_hal_uart.o(i.UART_DMAError) refers to stm32l4xx_hal_uart.o(i.UART_EndRxTransfer) for UART_EndRxTransfer
+    stm32l4xx_hal_uart.o(i.UART_DMAError) refers to stm32l4xx_hal_uart.o(i.HAL_UART_ErrorCallback) for HAL_UART_ErrorCallback
+    stm32l4xx_hal_uart.o(i.UART_DMAReceiveCplt) refers to stm32l4xx_hal_uart.o(i.HAL_UART_RxCpltCallback) for HAL_UART_RxCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMARxAbortCallback) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortCpltCallback) for HAL_UART_AbortCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMARxHalfCplt) refers to stm32l4xx_hal_uart.o(i.HAL_UART_RxHalfCpltCallback) for HAL_UART_RxHalfCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMARxOnlyAbortCallback) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceiveCpltCallback) for HAL_UART_AbortReceiveCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMATransmitCplt) refers to stm32l4xx_hal_uart.o(i.HAL_UART_TxCpltCallback) for HAL_UART_TxCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMATxAbortCallback) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortCpltCallback) for HAL_UART_AbortCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMATxHalfCplt) refers to stm32l4xx_hal_uart.o(i.HAL_UART_TxHalfCpltCallback) for HAL_UART_TxHalfCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_DMATxOnlyAbortCallback) refers to stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmitCpltCallback) for HAL_UART_AbortTransmitCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_RxISR_16BIT) refers to stm32l4xx_hal_uart.o(i.HAL_UART_RxCpltCallback) for HAL_UART_RxCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_RxISR_8BIT) refers to stm32l4xx_hal_uart.o(i.HAL_UART_RxCpltCallback) for HAL_UART_RxCpltCallback
+    stm32l4xx_hal_uart.o(i.UART_SetConfig) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK1Freq) for HAL_RCC_GetPCLK1Freq
+    stm32l4xx_hal_uart.o(i.UART_SetConfig) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq) for HAL_RCC_GetSysClockFreq
+    stm32l4xx_hal_uart.o(i.UART_SetConfig) refers to uldiv.o(.text) for __aeabi_uldivmod
+    stm32l4xx_hal_uart.o(i.UART_SetConfig) refers to stm32l4xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq) for HAL_RCC_GetPCLK2Freq
+    stm32l4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_uart_ex.o(i.HAL_MultiProcessorEx_AddressLength_Set) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart_ex.o(i.HAL_RS485Ex_Init) refers to stm32l4xx_hal_msp.o(i.HAL_UART_MspInit) for HAL_UART_MspInit
+    stm32l4xx_hal_uart_ex.o(i.HAL_RS485Ex_Init) refers to stm32l4xx_hal_uart.o(i.UART_SetConfig) for UART_SetConfig
+    stm32l4xx_hal_uart_ex.o(i.HAL_RS485Ex_Init) refers to stm32l4xx_hal_uart.o(i.UART_AdvFeatureConfig) for UART_AdvFeatureConfig
+    stm32l4xx_hal_uart_ex.o(i.HAL_RS485Ex_Init) refers to stm32l4xx_hal_uart.o(i.UART_CheckIdleState) for UART_CheckIdleState
+    stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_StopModeWakeUpSourceConfig) refers to stm32l4xx_hal.o(i.HAL_GetTick) for HAL_GetTick
+    stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_StopModeWakeUpSourceConfig) refers to stm32l4xx_hal_uart.o(i.UART_WaitOnFlagUntilTimeout) for UART_WaitOnFlagUntilTimeout
+    system_stm32l4xx.o(i.SystemCoreClockUpdate) refers to system_stm32l4xx.o(.constdata) for .constdata
+    system_stm32l4xx.o(i.SystemCoreClockUpdate) refers to system_stm32l4xx.o(.data) for .data
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000F) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$00000011) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry12b.o(.ARM.Collect$$$$0000000E) for __rt_lib_shutdown_fini
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_stm32l432xx.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_stm32l432xx.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to main.o(i.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(i.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing startup_stm32l432xx.o(HEAP), (512 bytes).
+    Removing max30102.o(.rev16_text), (4 bytes).
+    Removing max30102.o(.revsh_text), (4 bytes).
+    Removing max30102.o(.rrx_text), (6 bytes).
+    Removing max30102.o(i.read_fifo), (120 bytes).
+    Removing max30102.o(i.read_sequential), (68 bytes).
+    Removing max30102.o(i.set_config), (40 bytes).
+    Removing max30102.o(i.shutdown), (40 bytes).
+    Removing max30102.o(.bss), (400 bytes).
+    Removing max30102.o(.data), (1 bytes).
+    Removing max30102.o(.data), (1 bytes).
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(.rrx_text), (6 bytes).
+    Removing main.o(i.Error_Handler), (4 bytes).
+    Removing stm32l4xx_it.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_it.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_it.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_msp.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_msp.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_msp.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_msp.o(i.HAL_SMBUS_MspDeInit), (64 bytes).
+    Removing stm32l4xx_hal_msp.o(i.HAL_UART_MspDeInit), (52 bytes).
+    Removing stm32l4xx_hal_smbus.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_smbus.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_smbus.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ConfigAnalogFilter), (80 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ConfigDigitalFilter), (76 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_DeInit), (44 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_DisableAlert_IT), (22 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_DisableListen_IT), (26 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_ER_IRQHandler), (4 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EnableAlert_IT), (30 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_EnableListen_IT), (16 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_GetError), (4 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_GetState), (4 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_IsDeviceReady), (290 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Abort_IT), (98 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Receive_IT), (180 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Master_Transmit_IT), (208 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_MspDeInit), (2 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_MspInit), (2 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Receive_IT), (178 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.HAL_SMBUS_Slave_Transmit_IT), (206 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.SMBUS_ConvertOtherXferOptions), (54 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.SMBUS_Enable_IRQ), (50 bytes).
+    Removing stm32l4xx_hal_smbus.o(i.SMBUS_WaitOnFlagUntilTimeout), (90 bytes).
+    Removing stm32l4xx_hal.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DBGMCU_DisableDBGSleepMode), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DBGMCU_DisableDBGStandbyMode), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DBGMCU_DisableDBGStopMode), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DBGMCU_EnableDBGSleepMode), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DBGMCU_EnableDBGStandbyMode), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DBGMCU_EnableDBGStopMode), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_DeInit), (48 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetDEVID), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetHalVersion), (6 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetREVID), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetTickFreq), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetTickPrio), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetUIDw0), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetUIDw1), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_GetUIDw2), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_MspDeInit), (2 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_MspInit), (2 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_ResumeTick), (14 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SYSCFG_DisableIOAnalogSwitchBooster), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SYSCFG_DisableMemorySwappingBank), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SYSCFG_EnableIOAnalogSwitchBooster), (16 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SYSCFG_EnableMemorySwappingBank), (12 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SYSCFG_SRAM2Erase), (28 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SetTickFreq), (36 bytes).
+    Removing stm32l4xx_hal.o(i.HAL_SuspendTick), (14 bytes).
+    Removing stm32l4xx_hal_i2c.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_i2c.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_i2c.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_AbortCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_AddrCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_DeInit), (50 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_DisableListen_IT), (56 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_ER_IRQHandler), (104 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_EV_IRQHandler), (16 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_EnableListen_IT), (40 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_ErrorCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_GetError), (4 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_GetMode), (6 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_GetState), (6 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Init), (184 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_ListenCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_MasterRxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_MasterTxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Abort_IT), (124 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive), (298 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_DMA), (304 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Receive_IT), (136 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_DMA), (342 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Receive_IT), (164 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_DMA), (342 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Seq_Transmit_IT), (160 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_DMA), (304 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Master_Transmit_IT), (136 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_MemRxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_MemTxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_DMA), (326 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Read_IT), (210 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write), (350 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_DMA), (318 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Mem_Write_IT), (202 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_MspDeInit), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_MspInit), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_SlaveRxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_SlaveTxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive), (304 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_DMA), (224 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Receive_IT), (96 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_DMA), (364 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Receive_IT), (200 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_DMA), (364 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Seq_Transmit_IT), (200 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit), (308 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_DMA), (212 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.HAL_I2C_Slave_Transmit_IT), (96 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ConvertOtherXferOptions), (26 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_DMAAbort), (20 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_DMAError), (18 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_DMAMasterReceiveCplt), (82 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_DMAMasterTransmitCplt), (82 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_DMASlaveReceiveCplt), (36 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_DMASlaveTransmitCplt), (30 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_Disable_IRQ), (94 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_Enable_IRQ), (104 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITAddrCplt), (140 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITError), (244 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITListenCplt), (100 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITMasterCplt), (240 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITMasterSeqCplt), (76 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITSlaveCplt), (304 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_ITSlaveSeqCplt), (114 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_DMA), (272 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_Master_ISR_IT), (296 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_RequestMemoryWrite), (100 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_DMA), (266 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_Slave_ISR_IT), (288 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_TreatErrorCallback), (42 bytes).
+    Removing stm32l4xx_hal_i2c.o(i.I2C_WaitOnRXNEFlagUntilTimeout), (132 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigAnalogFilter), (86 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigDigitalFilter), (82 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(i.HAL_I2CEx_DisableFastModePlus), (40 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(i.HAL_I2CEx_DisableWakeUp), (78 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(i.HAL_I2CEx_EnableFastModePlus), (40 bytes).
+    Removing stm32l4xx_hal_i2c_ex.o(i.HAL_I2CEx_EnableWakeUp), (78 bytes).
+    Removing stm32l4xx_hal_rcc.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_rcc.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_rcc.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_CSSCallback), (2 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_DeInit), (224 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_EnableCSS), (16 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_GetClockConfig), (64 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq), (12 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_GetOscConfig), (228 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_MCOConfig), (72 bytes).
+    Removing stm32l4xx_hal_rcc.o(i.HAL_RCC_NMI_IRQHandler), (24 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRSConfig), (76 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRSGetSynchronizationInfo), (36 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRSSoftwareSynchronizationGenerate), (16 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRSWaitSynchronization), (132 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_ErrorCallback), (2 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_ExpectedSyncCallback), (2 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_IRQHandler), (108 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_SyncOkCallback), (2 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_CRS_SyncWarnCallback), (2 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisableLSCO), (88 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisableLSECSS), (28 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisableMSIPLLMode), (16 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_DisablePLLSAI1), (80 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSCO), (140 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSECSS), (20 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnableLSECSS_IT), (56 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_EnablePLLSAI1), (156 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKConfig), (188 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_GetPeriphCLKFreq), (802 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_LSECSS_Callback), (2 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_LSECSS_IRQHandler), (24 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_StandbyMSIRangeConfig), (24 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.HAL_RCCEx_WakeUpStopCLKConfig), (20 bytes).
+    Removing stm32l4xx_hal_rcc_ex.o(i.RCCEx_GetSAIxPeriphCLKFreq), (168 bytes).
+    Removing stm32l4xx_hal_flash.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_flash.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_flash.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_flash.o(i.FLASH_Program_DoubleWord), (28 bytes).
+    Removing stm32l4xx_hal_flash.o(i.FLASH_Program_Fast), (44 bytes).
+    Removing stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation), (100 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_EndOfOperationCallback), (2 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_GetError), (12 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_IRQHandler), (232 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_Lock), (20 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_OB_Launch), (24 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_OB_Lock), (20 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_OB_Unlock), (36 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_OperationErrorCallback), (2 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_Program), (170 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_Program_IT), (120 bytes).
+    Removing stm32l4xx_hal_flash.o(i.HAL_FLASH_Unlock), (40 bytes).
+    Removing stm32l4xx_hal_flash.o(.data), (32 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.FLASH_FlushCaches), (84 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.FLASH_MassErase), (28 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.FLASH_OB_PCROPConfig), (104 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.FLASH_OB_UserConfig), (248 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.FLASH_PageErase), (40 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase), (230 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_Erase_IT), (148 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_OBGetConfig), (148 bytes).
+    Removing stm32l4xx_hal_flash_ex.o(i.HAL_FLASHEx_OBProgram), (278 bytes).
+    Removing stm32l4xx_hal_flash_ramfunc.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_flash_ramfunc.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_flash_ramfunc.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_flash_ramfunc.o(i.HAL_FLASHEx_DisableRunPowerDown), (36 bytes).
+    Removing stm32l4xx_hal_flash_ramfunc.o(i.HAL_FLASHEx_EnableRunPowerDown), (36 bytes).
+    Removing stm32l4xx_hal_gpio.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_gpio.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_gpio.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_DeInit), (282 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_EXTI_Callback), (2 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler), (24 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_LockPin), (34 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_ReadPin), (10 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_TogglePin), (16 bytes).
+    Removing stm32l4xx_hal_gpio.o(i.HAL_GPIO_WritePin), (10 bytes).
+    Removing stm32l4xx_hal_dma.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_dma.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_dma.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_dma.o(i.DMA_SetConfig), (46 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_Abort), (74 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_DeInit), (156 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_GetError), (4 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_GetState), (6 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_IRQHandler), (186 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_Init), (192 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_PollForTransfer), (218 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_RegisterCallback), (74 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_Start), (80 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_Start_IT), (112 bytes).
+    Removing stm32l4xx_hal_dma.o(i.HAL_DMA_UnRegisterCallback), (82 bytes).
+    Removing stm32l4xx_hal_dma_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_dma_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_dma_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_pwr.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_pwr.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_pwr.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_ConfigPVD), (128 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_DeInit), (24 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_DisableBkUpAccess), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_DisablePVD), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_DisableSEVOnPend), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_DisableSleepOnExit), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_DisableWakeUpPin), (20 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnablePVD), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnableSEVOnPend), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnableSleepOnExit), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnableWakeUpPin), (28 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSLEEPMode), (72 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSTANDBYMode), (36 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_EnterSTOPMode), (16 bytes).
+    Removing stm32l4xx_hal_pwr.o(i.HAL_PWR_PVDCallback), (2 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_ConfigPVM), (304 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableBatteryCharging), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableGPIOPullDown), (76 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableGPIOPullUp), (72 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableInternalWakeUpLine), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableLowPowerRunMode), (68 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisablePVM1), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisablePVM3), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisablePVM4), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisablePullUpPullDownConfig), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableSRAM2ContentRetention), (6 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_DisableVddUSB), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableBatteryCharging), (28 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableGPIOPullDown), (104 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableGPIOPullUp), (104 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableInternalWakeUpLine), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableLowPowerRunMode), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnablePVM1), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnablePVM3), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnablePVM4), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnablePullUpPullDownConfig), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableSRAM2ContentRetention), (8 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnableVddUSB), (16 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnterSHUTDOWNMode), (36 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnterSTOP0Mode), (52 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnterSTOP1Mode), (56 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_EnterSTOP2Mode), (56 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVD_PVM_IRQHandler), (72 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVM1Callback), (2 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVM3Callback), (2 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_PVM4Callback), (2 bytes).
+    Removing stm32l4xx_hal_pwr_ex.o(i.HAL_PWREx_SetSRAM2ContentRetention), (40 bytes).
+    Removing stm32l4xx_hal_cortex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_cortex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_cortex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_MPU_ConfigRegion), (84 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_MPU_Disable), (16 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_MPU_Enable), (24 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_ClearPendingIRQ), (26 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_DisableIRQ), (34 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_GetActive), (36 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_GetPendingIRQ), (36 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_GetPriority), (82 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_GetPriorityGrouping), (16 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_SetPendingIRQ), (26 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_NVIC_SystemReset), (36 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig), (24 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_Callback), (2 bytes).
+    Removing stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_IRQHandler), (8 bytes).
+    Removing stm32l4xx_hal_exti.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_exti.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_exti.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_ClearConfigLine), (128 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_ClearPending), (28 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_GenerateSWI), (28 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_GetConfigLine), (172 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_GetHandle), (12 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_GetPending), (32 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_IRQHandler), (44 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_RegisterCallback), (14 bytes).
+    Removing stm32l4xx_hal_exti.o(i.HAL_EXTI_SetConfigLine), (176 bytes).
+    Removing stm32l4xx_hal_tim.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_tim.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_tim.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_tim_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_tim_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_tim_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_uart.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_uart.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_uart.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_EnableReceiver), (56 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_EnableTransmitter), (56 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_HalfDuplex_Init), (112 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_LIN_Init), (136 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_LIN_SendBreak), (46 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_DisableMuteMode), (40 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_EnableMuteMode), (40 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_EnterMuteMode), (12 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_MultiProcessor_Init), (134 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Abort), (154 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive), (104 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceiveCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortReceive_IT), (124 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit), (78 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmitCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_AbortTransmit_IT), (84 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Abort_IT), (192 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_DMAPause), (96 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_DMAResume), (88 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_DMAStop), (114 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_DeInit), (58 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_DisableReceiverTimeout), (64 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_EnableReceiverTimeout), (64 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_GetError), (4 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_GetState), (10 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_MspDeInit), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_MspInit), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Receive), (244 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Receive_DMA), (156 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Receive_IT), (172 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_ReceiverTimeout_Config), (24 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_RxCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_RxHalfCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Transmit), (182 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_DMA), (144 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_Transmit_IT), (100 bytes).
+    Removing stm32l4xx_hal_uart.o(i.HAL_UART_TxHalfCpltCallback), (2 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMAError), (72 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMAReceiveCplt), (60 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMARxAbortCallback), (58 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMARxHalfCplt), (10 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMARxOnlyAbortCallback), (36 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMATransmitCplt), (48 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMATxAbortCallback), (48 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMATxHalfCplt), (10 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_DMATxOnlyAbortCallback), (20 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_EndTxTransfer), (16 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_RxISR_16BIT), (90 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_RxISR_8BIT), (90 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_TxISR_16BIT), (64 bytes).
+    Removing stm32l4xx_hal_uart.o(i.UART_TxISR_8BIT), (60 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(.rev16_text), (4 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(.revsh_text), (4 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(.rrx_text), (6 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_MultiProcessorEx_AddressLength_Set), (46 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_RS485Ex_Init), (136 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_DisableClockStopMode), (38 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_DisableStopMode), (38 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_EnableClockStopMode), (38 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_EnableStopMode), (38 bytes).
+    Removing stm32l4xx_hal_uart_ex.o(i.HAL_UARTEx_StopModeWakeUpSourceConfig), (134 bytes).
+    Removing system_stm32l4xx.o(.rev16_text), (4 bytes).
+    Removing system_stm32l4xx.o(.revsh_text), (4 bytes).
+    Removing system_stm32l4xx.o(.rrx_text), (6 bytes).
+    Removing system_stm32l4xx.o(i.SystemCoreClockUpdate), (168 bytes).
+
+414 unused section(s) (total 27546 bytes) removed from the image.

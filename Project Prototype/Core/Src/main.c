@@ -45,6 +45,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c3;
 
@@ -67,6 +69,7 @@ static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C3_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -200,10 +203,7 @@ int main(void)
   MX_I2C1_Init();
   MX_USART2_UART_Init();
   MX_I2C3_Init();
-	SSD1306_Init();
-	adxl_write (0x2d, 0x00);  // reset all bits
-	adxl_write (0x2d, 0x08);  // measure and wake up 8hz
-	adxl_write (0x31, 0x01);  // data_format range= +- 4g
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   //Transmit via I2C to set clock
   uint8_t secbuffer [2], minbuffer [2], hourbuffer [2];
@@ -233,6 +233,7 @@ int main(void)
   uint8_t spo2;
   uint8_t heartReat;
   int16_t diff;
+	uint16_t ADC=0;
   uint8_t tempbuffer1[2],tempbuffer2[2];
   tempbuffer1[0]=0x11;
   tempbuffer2[0]=0x12;
@@ -245,7 +246,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-			//send seconds register address 00h to read from
+		//send seconds register address 00h to read from
 			HAL_I2C_Master_Transmit(&hi2c1, 0xD0, secbuffer, 1, 10);
 			//read data of register 00h to secbuffer[1]
 			HAL_I2C_Master_Receive(&hi2c1, 0xD1, secbuffer+1, 1, 10);
@@ -304,16 +305,18 @@ int main(void)
 			zg = z * .0078;
 			steps_displayed = Pedometer();
 			sprintf(steps_string, "x:%.2f,y:%.2f", xg,yg);
-			if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5) == GPIO_PIN_RESET)
-        {
-            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-            max30102_cal();
+//			if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5) == GPIO_PIN_RESET)
+//        {
+//            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+//            max30102_cal();
 
-            spo2 = max30102_getSpO2();
-            heartReat = max30102_getHeartRate();
-				}
+//            spo2 = max30102_getSpO2();
+//            heartReat = max30102_getHeartRate();
+//				}
 
-
+			HAL_ADC_Start(&hadc1); 
+			if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK) ADC = HAL_ADC_GetValue(&hadc1);
+			
 			SSD1306_GotoXY (10,0); // goto 10, 10 
 			SSD1306_Puts (out, &Font_7x10, 1); // print Hello 
 			SSD1306_GotoXY (10,15); // goto 10, 10 
@@ -324,12 +327,13 @@ int main(void)
 			SSD1306_GotoXY (10,30); // goto 10, 10 
 			SSD1306_Puts (steps_string, &Font_7x10, 1); // print Hello 
 			
-				sprintf(heart_rate, "hr:%d", heartReat);
+			sprintf(heart_rate, "Heart Rate:%d", ADC);
 			SSD1306_GotoXY (10,45); // goto 10, 10 
 			SSD1306_Puts (heart_rate, &Font_7x10, 1); // print Hello 
 			SSD1306_UpdateScreen(); // update screen 
 			HAL_Delay(100);
- }
+    /* USER CODE BEGIN 3 */
+  }
   /* USER CODE END 3 */
 }
 
@@ -374,10 +378,18 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2|RCC_PERIPHCLK_I2C1
-                              |RCC_PERIPHCLK_I2C3;
+                              |RCC_PERIPHCLK_I2C3|RCC_PERIPHCLK_ADC;
   PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_PCLK1;
   PeriphClkInit.I2c3ClockSelection = RCC_I2C3CLKSOURCE_PCLK1;
+  PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
+  PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
+  PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
+  PeriphClkInit.PLLSAI1.PLLSAI1N = 16;
+  PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
+  PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
+  PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
+  PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_ADC1CLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
@@ -391,6 +403,62 @@ void SystemClock_Config(void)
   /** Enable MSI Auto calibration
   */
   HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+  /** Common config
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_5;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
